@@ -20,8 +20,8 @@ BOOST_AUTO_TEST_CASE(ZeroNumberProduceZeroSets)
 	auto copyFirstSet = firstSet; auto copySecondSet = secondSet;
 	vector<int> resultVector;
 	auto copyResultVector = resultVector;
-	ProcessingSet(firstSet, number);
-	FillSet(secondSet, number);
+	ProcessSetDivSumDigits(firstSet, number);
+	ProcessSetSumDigitsNumberDiv2(secondSet, number);
 	resultVector = CrossSet(firstSet, secondSet);
 	BOOST_CHECK(isSetsEqual(firstSet, copyFirstSet), isSetsEqual(secondSet, copySecondSet), 
 				isVectorsEqual(resultVector, copyResultVector));
@@ -34,8 +34,8 @@ BOOST_AUTO_TEST_CASE(TestWithNumber_1)
 	auto copyFirstSet = { 1 }; auto copySecondSet = secondSet;
 	vector<int> resultVector;
 	auto copyResultVector = resultVector;
-	ProcessingSet(firstSet, number);
-	FillSet(secondSet, number);
+	ProcessSetDivSumDigits(firstSet, number);
+	ProcessSetSumDigitsNumberDiv2(secondSet, number);
 	resultVector = CrossSet(firstSet, secondSet);
 	BOOST_CHECK(isSetsEqual(firstSet, copyFirstSet), isSetsEqual(secondSet, copySecondSet), 
 				isVectorsEqual(resultVector, copyResultVector));
@@ -48,8 +48,8 @@ BOOST_AUTO_TEST_CASE(TestWithNumber_5)
 	set<int> copyFirstSet = { 1, 2, 3, 4, 5 }; set<int> copySecondSet = { 2, 4 };
 	vector<int> resultVector;
 	vector<int> copyResultVector = { 2, 4 };
-	ProcessingSet(firstSet, number);
-	FillSet(secondSet, number);
+	ProcessSetDivSumDigits(firstSet, number);
+	ProcessSetSumDigitsNumberDiv2(secondSet, number);
 	resultVector = CrossSet(firstSet, secondSet);
 	BOOST_CHECK(isSetsEqual(firstSet, copyFirstSet), isSetsEqual(secondSet, copySecondSet), 
 				isVectorsEqual(resultVector, copyResultVector));
@@ -63,8 +63,8 @@ BOOST_AUTO_TEST_CASE(TestWithNumber_20)
 	set<int> copySecondSet = { 2, 4, 6, 8, 11, 13, 15, 17, 19, 20 };
 	vector<int> resultVector;
 	vector<int> copyResultVector = { 2, 4, 6, 8, 20 };
-	ProcessingSet(firstSet, number);
-	FillSet(secondSet, number);
+	ProcessSetDivSumDigits(firstSet, number);
+	ProcessSetSumDigitsNumberDiv2(secondSet, number);
 	resultVector = CrossSet(firstSet, secondSet);
 	BOOST_CHECK(isSetsEqual(firstSet, copyFirstSet), isSetsEqual(secondSet, copySecondSet), 
 				isVectorsEqual(resultVector, copyResultVector));

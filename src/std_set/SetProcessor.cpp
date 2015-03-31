@@ -5,42 +5,41 @@
 
 using namespace std;
 
-void ProcessingSet(set<int> &numbersDivSumDigitsNumber, int number)
+void ProcessSetDivSumDigits(set<int> &numbersDivSumDigitsNumber, int &upperBound)
 {
-	int modSum = 0, result = 1, subsid;
-	while (result <= number)
+	int modSum = 0, result = 1;
+	while (result <= upperBound)
 	{
-		subsid = result;
-		while (subsid)
-		{
-			modSum += subsid % 10;
-			subsid = subsid / 10;
-		}
+		modSum = ReturnSumDigitsOfNumber(result);
 		if (result % modSum == 0)
 		{
 			numbersDivSumDigitsNumber.insert(result);
 		}
-		modSum = 0;
 		++result;
 	}
 }
 
-void FillSet(set<int> &numbersSumDigitsNumberDiv2, int number)
+int ReturnSumDigitsOfNumber(int processedNUmber)
 {
-	int modSum = 0, result = 1, subsid;
-	while (result <= number)
+	int modSum = 0;
+	while (processedNUmber)
 	{
-		subsid = result;
-		while (subsid)
-		{
-			modSum += subsid % 10;
-			subsid = subsid / 10;
-		}
+		modSum += processedNUmber % 10;
+		processedNUmber = processedNUmber / 10;
+	}
+	return modSum;
+}
+
+void ProcessSetSumDigitsNumberDiv2(set<int> &numbersSumDigitsNumberDiv2, int &upperBound)
+{
+	int modSum = 0, result = 1;
+	while (result <= upperBound)
+	{
+		modSum = ReturnSumDigitsOfNumber(result);
 		if (modSum % 2 == 0)
 		{
 			numbersSumDigitsNumberDiv2.insert(result);
 		}
-		modSum = 0;
 		++result;
 	}
 }

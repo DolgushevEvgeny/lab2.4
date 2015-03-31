@@ -12,27 +12,31 @@ int main(int argc, int argv[])
 {
 	set<int> numbersDivSumDigitsNumber;
 	set<int> numbersSumDigitsNumberDiv2;
-	vector<int> resultVector;
-	int number = argv[1];
-	ProcessingSet(numbersDivSumDigitsNumber, number);
-	FillSet(numbersSumDigitsNumberDiv2, number);
+	cout << "Enter your number: ";
+	int upperBound;
+	cin >> upperBound;
+	ProcessSetDivSumDigits(numbersDivSumDigitsNumber, upperBound);
+	ProcessSetSumDigitsNumberDiv2(numbersSumDigitsNumberDiv2, upperBound);
+	
 	for (auto numb : numbersDivSumDigitsNumber)
 	{
-		printf("%d ", numb);
+		cout << numb << " ";
 	}
-	printf("%s", "\n");
+	cout << "\n";
+	
 	for (auto numb : numbersSumDigitsNumberDiv2)
 	{
-		printf("%d ", numb);
+		cout << numb << " ";
 	}
-	printf("%s", "\n");
-	resultVector = CrossSet(numbersDivSumDigitsNumber, numbersSumDigitsNumberDiv2);
-	for (auto numb : resultVector)
+	cout << "\n";
+	
+	vector<int> resultSet;
+	resultSet = CrossSet(numbersDivSumDigitsNumber, numbersSumDigitsNumberDiv2);
+	for (auto numb : resultSet)
 	{
-		printf("%d ", numb);
+		cout << numb << " ";
 	}
-	printf("%s", "\n");
-	system("pause");
+	cout << "\n";
 	return 0;
 }
 
