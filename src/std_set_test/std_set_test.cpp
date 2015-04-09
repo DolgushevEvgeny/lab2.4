@@ -3,12 +3,12 @@
 
 using namespace std;
 
-bool isSetsEqual(set<int> first, set<int> second)
+bool IsSetsEqual(set<int> first, set<int> second)
 {
 	return first == second;
 }
 
-bool isVectorsEqual(vector<int> first, vector<int> second)
+bool IsVectorsEqual(vector<int> first, vector<int> second)
 {
 	return first == second;
 }
@@ -23,8 +23,9 @@ BOOST_AUTO_TEST_CASE(ZeroNumberProduceZeroSets)
 	ProcessSetDivSumDigits(firstSet, number);
 	ProcessSetSumDigitsNumberDiv2(secondSet, number);
 	resultVector = CrossSet(firstSet, secondSet);
-	BOOST_CHECK(isSetsEqual(firstSet, copyFirstSet), isSetsEqual(secondSet, copySecondSet), 
-				isVectorsEqual(resultVector, copyResultVector));
+	BOOST_CHECK(IsSetsEqual(firstSet, copyFirstSet));
+	BOOST_CHECK(IsSetsEqual(secondSet, copySecondSet));
+	BOOST_CHECK(IsVectorsEqual(resultVector, copyResultVector));
 }
 
 BOOST_AUTO_TEST_CASE(TestWithNumber_1)
@@ -37,8 +38,9 @@ BOOST_AUTO_TEST_CASE(TestWithNumber_1)
 	ProcessSetDivSumDigits(firstSet, number);
 	ProcessSetSumDigitsNumberDiv2(secondSet, number);
 	resultVector = CrossSet(firstSet, secondSet);
-	BOOST_CHECK(isSetsEqual(firstSet, copyFirstSet), isSetsEqual(secondSet, copySecondSet), 
-				isVectorsEqual(resultVector, copyResultVector));
+	BOOST_CHECK(IsSetsEqual(firstSet, copyFirstSet));
+	BOOST_CHECK(IsSetsEqual(secondSet, copySecondSet));
+	BOOST_CHECK(IsVectorsEqual(resultVector, copyResultVector));
 }
 
 BOOST_AUTO_TEST_CASE(TestWithNumber_5)
@@ -51,8 +53,9 @@ BOOST_AUTO_TEST_CASE(TestWithNumber_5)
 	ProcessSetDivSumDigits(firstSet, number);
 	ProcessSetSumDigitsNumberDiv2(secondSet, number);
 	resultVector = CrossSet(firstSet, secondSet);
-	BOOST_CHECK(isSetsEqual(firstSet, copyFirstSet), isSetsEqual(secondSet, copySecondSet), 
-				isVectorsEqual(resultVector, copyResultVector));
+	BOOST_CHECK(IsSetsEqual(firstSet, copyFirstSet));
+	BOOST_CHECK(IsSetsEqual(secondSet, copySecondSet));
+	BOOST_CHECK(IsVectorsEqual(resultVector, copyResultVector));
 }
 
 BOOST_AUTO_TEST_CASE(TestWithNumber_20)
@@ -66,6 +69,20 @@ BOOST_AUTO_TEST_CASE(TestWithNumber_20)
 	ProcessSetDivSumDigits(firstSet, number);
 	ProcessSetSumDigitsNumberDiv2(secondSet, number);
 	resultVector = CrossSet(firstSet, secondSet);
-	BOOST_CHECK(isSetsEqual(firstSet, copyFirstSet), isSetsEqual(secondSet, copySecondSet), 
-				isVectorsEqual(resultVector, copyResultVector));
+	BOOST_CHECK(IsSetsEqual(firstSet, copyFirstSet));
+	BOOST_CHECK(IsSetsEqual(secondSet, copySecondSet));
+	BOOST_CHECK(IsVectorsEqual(resultVector, copyResultVector));
+}
+
+BOOST_AUTO_TEST_CASE(UnpositiveUpperboundDontProduceEmptySets)
+{
+	int number = -5;
+	set<int> firstSet; set<int> secondSet;
+	ProcessSetDivSumDigits(firstSet, number);
+	ProcessSetSumDigitsNumberDiv2(secondSet, number);
+	vector<int> resultVector;
+	resultVector = CrossSet(firstSet, secondSet);
+	BOOST_CHECK_EQUAL(firstSet.size(), 0);
+	BOOST_CHECK_EQUAL(secondSet.size(), 0);
+	BOOST_CHECK_EQUAL(resultVector.size(), 0);
 }

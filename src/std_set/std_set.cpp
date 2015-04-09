@@ -10,12 +10,12 @@ using namespace std;
 
 int main(int argc, int argv[])
 {
-	set<int> numbersDivSumDigitsNumber;
-	set<int> numbersSumDigitsNumberDiv2;
 	cout << "Enter your number: ";
 	int upperBound;
 	cin >> upperBound;
+	set<int> numbersDivSumDigitsNumber;
 	ProcessSetDivSumDigits(numbersDivSumDigitsNumber, upperBound);
+	set<int> numbersSumDigitsNumberDiv2;
 	ProcessSetSumDigitsNumberDiv2(numbersSumDigitsNumberDiv2, upperBound);
 	
 	for (auto numb : numbersDivSumDigitsNumber)

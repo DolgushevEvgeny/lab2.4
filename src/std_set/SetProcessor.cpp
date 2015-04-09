@@ -7,11 +7,10 @@ using namespace std;
 
 void ProcessSetDivSumDigits(set<int> &numbersDivSumDigitsNumber, int &upperBound)
 {
-	int modSum = 0, result = 1;
+	int result = 1;
 	while (result <= upperBound)
 	{
-		modSum = ReturnSumDigitsOfNumber(result);
-		if (result % modSum == 0)
+		if (result % ReturnSumDigitsOfNumber(result) == 0)
 		{
 			numbersDivSumDigitsNumber.insert(result);
 		}
@@ -32,11 +31,10 @@ int ReturnSumDigitsOfNumber(int processedNUmber)
 
 void ProcessSetSumDigitsNumberDiv2(set<int> &numbersSumDigitsNumberDiv2, int &upperBound)
 {
-	int modSum = 0, result = 1;
+	int result = 1;
 	while (result <= upperBound)
 	{
-		modSum = ReturnSumDigitsOfNumber(result);
-		if (modSum % 2 == 0)
+		if (ReturnSumDigitsOfNumber(result) % 2 == 0)
 		{
 			numbersSumDigitsNumberDiv2.insert(result);
 		}
